@@ -1,16 +1,34 @@
 #include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
 
-#define width  40
-#define height 20
+
+#define width  50
+#define height 40
+
+bool gameOver = false;
 
 void draw( char ); 
 
 void setup() {
 
+	system("clear");
+
 	draw('+');	
 
 	for (int i = 0; i < height; i++ )
-		draw('-');
+	{
+		for ( int j = 0; j < width; j++ )
+		{
+			if ( j == 0 || j == width-1 )
+			{
+				putchar('+'); 
+			} else {
+				 putchar('-');
+			}
+		}	
+		printf("\n");
+	}
 
 	draw('+');	
 }
@@ -18,8 +36,11 @@ void setup() {
 
 int main() {
 
-
-	setup();
+	while ( !gameOver )
+	{
+		setup();
+		sleep(40);
+	}
 
 	 return 0;
 
