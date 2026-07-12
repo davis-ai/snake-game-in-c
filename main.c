@@ -2,6 +2,9 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include "conio.h"
+
+int _kbhit(void);
 
 #define width 50
 #define height 25
@@ -31,7 +34,7 @@ void Input () {
 
 	if (kbhit())
 	{
-		switch(getchar()) 
+		switch(getch()) 
 		{
 			case 'w':
 				dir = UP;
@@ -116,7 +119,7 @@ int main() {
 		Draw();
 		Input();
 		Logic();
-		sleep(0.6);
+		sleep(0.9);
 	}
 
 	 return 0;
